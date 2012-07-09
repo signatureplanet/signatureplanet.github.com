@@ -12,7 +12,7 @@ tags: []
 * Use "the enum hack" to declare constant which only affective inside class or specified code block
 * Avoid macros.  Use template and inline instead.
 
-    template<typename T>
+    template &lt;typename T &gt;
     inline void callWithMax(const T& a, const T& b)
     {
       f(a > b ? a : b);
@@ -25,11 +25,11 @@ tags: []
     const T *p;   // p points to T which is constant
     T * const p;  // p is a const pointer to a mutable T
 
-    const std::vector<int>::iterator iter = vc.begin(); //iter is as int * const iter
+    const std::vector &lt;int&gt;::iterator iter = vc.begin(); //iter is as int * const iter
     *iter = 10;   // OK 
     ++iter;       // NG
 
-    std::vector<int>::const_iterator iter = vc.begin(); //iter is as const int *iter
+    std::vector &lt;int&gt;::const_iterator iter = vc.begin(); //iter is as const int *iter
     *iter = 10;   // NG
     ++iter;       //OK
 
